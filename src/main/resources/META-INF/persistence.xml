@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+
+    <persistence-unit name="empleadosPU" transaction-type="RESOURCE_LOCAL">
+        <class>com.app.mockitoapp.model.Cargo</class>
+        <class>com.app.mockitoapp.model.Empleado</class>
+
+        <properties>
+            <!-- Conexión a PostgreSQL -->
+            <property name="jakarta.persistence.jdbc.driver"   value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url"      value="jdbc:postgresql://localhost:5432/empleados_db"/>
+            <property name="jakarta.persistence.jdbc.user"     value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="bdatos"/>
+
+            <!-- Hibernate -->
+            <!-- Las tablas ya existen: no crear ni modificar el esquema -->
+            <property name="hibernate.hbm2ddl.auto" value="none"/>
+            <property name="hibernate.show_sql"     value="false"/>
+            <property name="hibernate.format_sql"   value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
